@@ -1,6 +1,10 @@
 const getSum = (frame) => frame.length == 0 ? 0: frame.reduce((acc, item) => acc+item);
 
 const bowlingScoreCalculator = (rolls) => {
+    if(!Array.isArray(rolls)) throw 'unsupported type';
+    if(rolls.length == 0) throw 'Not enough frames';
+
+    
 
     const frames = [];
     let score = 0;
@@ -73,3 +77,6 @@ const bowlingScoreCalculator = (rolls) => {
 
 
 bowlingScoreCalculator([  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10])
+
+bowlingScoreCalculator([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])
+bowlingScoreCalculator([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
