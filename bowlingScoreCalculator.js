@@ -50,15 +50,9 @@ const bowlingScoreCalculator = (rolls) => {
 		score += getSum(currentFrameScores);
 		frames.push(currentFrameScores);
 	}
-	console.log(score);
-	console.log(frames);
+	
 
-
+	return score;
 };
 
 module.exports = { bowlingScoreCalculator };
-
-console.log(bowlingScoreCalculator([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]));
-console.log(bowlingScoreCalculator([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]));
-console.log(bowlingScoreCalculator([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
-console.log(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
