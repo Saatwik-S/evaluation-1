@@ -18,24 +18,38 @@ const bowlingScoreCalculator = (rolls) => {
             currFrame = [];
             throwsInThisFrame = 0;
         }
-        if(index < 20) {
+        if(index < 19) {
             throwsInThisFrame+=1;
             if(roll == 10 && throwsInThisFrame == 1){ // case for strike
                 currFrame.push(10, rolls[index+1], rolls[index+2]);
                 throwsInThisFrame = 2;
             }
             else if(getSum(currFrame) + roll == 10 && throwsInThisFrame == 2) { // case for spare
-                currFrame.push(roll, rolls[index+1]);
-                throwsInThisFrame = 2
-            }
+                if(index == 18) // last frame starts
+                 {
+                    for(let currRoll = 18; currRoll < rolls.length; currRoll++) currFrame.push(rolls[currRoll]);
+                    finalCaseIsThere = true;
+                    frames.push(currFrame);
+                     score+= getSum(currFrame);
+                    currFrame = [];
+                 }
+                 else {
+                    currFrame.push(roll, rolls[index+1]);
+                    throwsInThisFrame = 2
+                      
+                 }
+              }
             else {
                 currFrame.push(roll);
             }
     
         }
         else {
-           for(let currRoll = 20; currRoll < rolls.length; currRoll++) currFrame.push(rolls[currRoll]);
+           for(let currRoll = 19; currRoll < rolls.length; currRoll++) currFrame.push(rolls[currRoll]);
            finalCaseIsThere = true;
+           frames.push(currFrame);
+           score+= getSum(currFrame);
+           currFrame = [];
 
             // last case
         }
