@@ -70,13 +70,18 @@ const bowlingScoreCalculator = (rolls) => {
 		score+= getSum(currFrame);
 	}
 
-	console.log(frames);
-	console.log(score);
+	const finalObj = {score : score, frames: {}};
+
+	frames.forEach((frame, index ) =>{
+		finalObj.frames[index+1] = frame;} );
+	
+
+	return finalObj;
 
 };
 
 
-bowlingScoreCalculator([  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]);
+console.log(bowlingScoreCalculator([  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]));
 
 bowlingScoreCalculator([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]);
 bowlingScoreCalculator([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
