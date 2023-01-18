@@ -55,4 +55,15 @@ const bowlingScoreCalculator = (rolls) => {
 	return score;
 };
 
-module.exports = { bowlingScoreCalculator };
+/**
+ * @param {Array<Array<Integer>>}
+ */
+const bestScoreCalculator = (rollsofMultipleGames) => {
+	return rollsofMultipleGames.reduce((acc, item) => {
+		let score = bowlingScoreCalculator(item);
+		return Math.max(score, acc);
+	}, -1);
+
+};
+
+module.exports = { bowlingScoreCalculator, bestScoreCalculator };

@@ -20,18 +20,21 @@ describe('Bowling Score Calculator', () => {
 	});
 
 	it('Should return 300 when all the inputs are 10', () => {
-		expect(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10])).toBe(380);
+		expect(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10])).toBe(380);
 
 	});
 
 	it('Should return 16 when the array has 6,4,3 in the start and rest are 0', () => {
-		expect(bowlingScoreCalculator(bowlingScoreCalculator([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))).toBe(16);
+		expect((bowlingScoreCalculator([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))).toBe(16);
 	});
 	it('Should return 90 when all are 3,6....', () => {
 		expect(bowlingScoreCalculator([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(90);
 	});
 	it('Should return 30 when all elements except last three are 0', () => {
-		expect(bowlingScoreCalculator([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 10])).toBe(30);
+		expect(bowlingScoreCalculator([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10])).toBe(30);
+	});
+	it('Should return 27 when all are 3,6....', () => {
+		expect(bowlingScoreCalculator([3, 6, 3, 6, 3, 6])).toBe(27);
 	});
 });
 
