@@ -40,7 +40,7 @@ const bowlingScoreCalculator = (rolls) => {
 			currentFrameScores.push(roll);
 			throwsInCurrentFrame++;
 		}
-		if(throwsInCurrentFrame == 2) {
+		if (throwsInCurrentFrame == 2) {
 			currentFrame++;
 
 		}
@@ -50,7 +50,7 @@ const bowlingScoreCalculator = (rolls) => {
 		score += getSum(currentFrameScores);
 		frames.push(currentFrameScores);
 	}
-	
+
 
 	return score;
 };
