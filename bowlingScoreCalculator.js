@@ -76,6 +76,5 @@ const bestScoreCalculator = (rollsofMultipleGames) => {
 
 };
 
-console.log(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
 
 module.exports = { bowlingScoreCalculator, bestScoreCalculator };

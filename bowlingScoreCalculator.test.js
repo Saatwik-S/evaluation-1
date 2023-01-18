@@ -2,6 +2,7 @@
 const { describe, it, expect } = require('@jest/globals');
 const { bowlingScoreCalculator, bestScoreCalculator } = require('./bowlingScoreCalculator');
 
+
 describe('Bowling Score Calculator', () => {
 
 	describe('Calculate Score of a single game', () => {
@@ -44,6 +45,7 @@ describe('Bowling Score Calculator', () => {
 			expect(bestScoreCalculator([[3, 6, 3, 6, 3, 6],[3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]])).toBe(90);
 		});
 	});
+
 
 	
 
