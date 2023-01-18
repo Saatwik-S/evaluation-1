@@ -1,6 +1,7 @@
 
 const { describe, it, expect } = require('@jest/globals');
-const { bowlingScoreCalculator } = require('./bowlingScoreCalculator');
+const { bowlingScoreCalculator, bestScoreCalculator } = require('./bowlingScoreCalculator');
+
 
 describe('Bowling Score Calculator', () => {
 
@@ -39,11 +40,12 @@ describe('Bowling Score Calculator', () => {
 		});
 	});
 
-	// describe('Calculate best score for multiple games', () => {
-	// 	it('Should return 90 when two arrays are there or (3,6)*3 and (3,6)*10', () => {
-	// 		expect(bestScoreCalculator([[3, 6, 3, 6, 3, 6],[3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]])).toBe(90);
-	// 	});
-	//});
+	describe('Calculate best score for multiple games', () => {
+		it('Should return 90 when two arrays are there or (3,6)*3 and (3,6)*10', () => {
+			expect(bestScoreCalculator([[3, 6, 3, 6, 3, 6],[3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]])).toBe(90);
+		});
+	});
+
 
 	
 
