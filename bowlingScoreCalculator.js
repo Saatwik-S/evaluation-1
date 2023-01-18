@@ -14,19 +14,24 @@ const bowlingScoreCalculator = (rolls) => {
 	let currentFrameScores = [];
 	let score = 0;
 	let currentFrame = 1;
+	let gameOver = false;
 	rolls.forEach((roll, index) => {
-		if (currentFrame == totalFrames) {
-			currentFrameScores.push(roll);
+		if(gameOver) return;
+		if (currentFrame === totalFrames) {
+			if(roll === 10) {
+				currentFrameScores.push(10, rolls[index], rolls[index+1]);
+			}
+			else if (roll + roll[index+1] == 10) {
+				currentFrameScores.push(roll, rolls[index+1], rolls[index+2]);
+			}
+			else {
+				currentFrameScores.push(rolls[index], rolls[index+1]);
+			}
+			gameOver = true;
+
 			return;
 		}
-
-		if (throwsInCurrentFrame === 2) {
-			score += getSum(currentFrameScores);
-			frames.push(currentFrameScores);
-			currentFrameScores = [];
-			throwsInCurrentFrame = 0;
-
-		}
+		
 
 		if (roll === 10) { // case for strike
 			currentFrameScores.push(10, rolls[index], rolls[index + 1]);
@@ -40,8 +45,13 @@ const bowlingScoreCalculator = (rolls) => {
 			currentFrameScores.push(roll);
 			throwsInCurrentFrame++;
 		}
+
 		if (throwsInCurrentFrame == 2) {
 			currentFrame++;
+			score += getSum(currentFrameScores);
+			frames.push(currentFrameScores);
+			currentFrameScores = [];
+			throwsInCurrentFrame = 0;
 
 		}
 
@@ -50,7 +60,7 @@ const bowlingScoreCalculator = (rolls) => {
 		score += getSum(currentFrameScores);
 		frames.push(currentFrameScores);
 	}
-
+	console.log(frames);
 
 	return score;
 };
@@ -65,5 +75,7 @@ const bestScoreCalculator = (rollsofMultipleGames) => {
 	}, -1);
 
 };
+
+console.log(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
 
 module.exports = { bowlingScoreCalculator, bestScoreCalculator };

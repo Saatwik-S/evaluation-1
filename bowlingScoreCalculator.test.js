@@ -21,7 +21,7 @@ describe('Bowling Score Calculator', () => {
 		});
     
 		it('Should return 300 when all the inputs are 10', () => {
-			expect(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10])).toBe(380);
+			expect(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10])).toBe(300);
     
 		});
     
