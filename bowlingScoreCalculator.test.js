@@ -6,21 +6,28 @@ const { bowlingScoreCalculator, bestScoreCalculator } = require('./bowlingScoreC
 describe('Bowling Score Calculator', () => {
 
 	describe('Calculate Score of a single game', () => {
-		it('Should throw an error when no array is provided', () => {
-			expect(() => {
-				bowlingScoreCalculator('123');
-    
-			}).toThrow('unsupported type');
-    
-    
-    
+		describe('Error Cases', () => {
+
+			it('Should throw an error when no array is provided', () => {
+				expect(() => {
+					bowlingScoreCalculator('123');
+		
+				}).toThrow('unsupported type');
+		
+		
+		
+			});
+			it('Should throw an error when the length of array is 0', () => {
+				expect(() => {
+					bowlingScoreCalculator([]);
+				}).toThrow('Not enough frames');
+			});
+		
 		});
-		it('Should throw an error when the length of array is 0', () => {
-			expect(() => {
-				bowlingScoreCalculator([]);
-			}).toThrow('Not enough frames');
-		});
-    
+		
+		
+
+
 		it('Should return 300 when all the inputs are 10', () => {
 			expect(bowlingScoreCalculator([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10])).toBe(300);
     

@@ -5,8 +5,14 @@ const getSum = (frame) => frame.length == 0 ? 0 : frame.reduce((acc, item) => ac
  */
 
 const bowlingScoreCalculator = (rolls) => {
-	if (!Array.isArray(rolls)) throw 'unsupported type';
-	if (rolls.length == 0) throw 'Not enough frames';
+	if (!Array.isArray(rolls)) throw new Error('Unsupported Type');
+	if (rolls.length == 0) throw new Error('Not enough frames');
+	rolls.forEach(e => {
+		if (typeof (e) !== Number || e > 10) {
+			throw new Error('Invalid input in one of the frames');
+		}
+	});
+
 	let throwsInCurrentFrame = 0;
 	const totalFrames = 10;
 
@@ -15,23 +21,25 @@ const bowlingScoreCalculator = (rolls) => {
 	let score = 0;
 	let currentFrame = 1;
 	let gameOver = false;
+
+
 	rolls.forEach((roll, index) => {
-		if(gameOver) return;
+		if (gameOver) return;
 		if (currentFrame === totalFrames) {
-			if(roll === 10) {
-				currentFrameScores.push(10, rolls[index], rolls[index+1]);
+			if (roll === 10) {
+				currentFrameScores.push(10, rolls[index + 1], rolls[index + 2]);
 			}
-			else if (roll + roll[index+1] == 10) {
-				currentFrameScores.push(roll, rolls[index+1], rolls[index+2]);
+			else if (roll + roll[index + 1] == 10) {
+				currentFrameScores.push(roll, rolls[index + 1], rolls[index + 2]);
 			}
 			else {
-				currentFrameScores.push(rolls[index], rolls[index+1]);
+				currentFrameScores.push(rolls[index], rolls[index + 1]);
 			}
 			gameOver = true;
 
 			return;
 		}
-		
+
 
 		if (roll === 10) { // case for strike
 			currentFrameScores.push(10, rolls[index], rolls[index + 1]);
@@ -60,7 +68,6 @@ const bowlingScoreCalculator = (rolls) => {
 		score += getSum(currentFrameScores);
 		frames.push(currentFrameScores);
 	}
-	console.log(frames);
 
 	return score;
 };
